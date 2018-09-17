@@ -1,0 +1,23 @@
+language: python
+python:
+  - "3.6"
+install:
+  - pip install -r requirements.txt
+script:
+  - py.test --cov=app/
+  -coveralls 
+  -coverage
+after_success:
+  -coveralls
+# blacklist
+branches:
+  except:
+    - develop
+   
+
+# whitelist
+branches:
+  only:
+    - api
+     
+ 
